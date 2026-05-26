@@ -125,12 +125,12 @@ function enviarMensagem()
 
     else if(texto.includes("jean"))
     {
-        resposta = "Essa pergunta é suspeita demais 😂";
+        resposta = "sim faz muito tempo 😂";
     }
 
     else if(texto.includes("nardo"))
     {
-        resposta = "Informações confidenciais 😳";
+        resposta = "ele e o jean pegaram a eti juntos rapaz 😳";
     }
 
     else
