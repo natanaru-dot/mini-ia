@@ -1,95 +1,287 @@
-body{
-    background: linear-gradient(to right, #141e30, #243b55);
-
-    font-family: Arial;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    height: 100vh;
-
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.chat{
-    width: 450px;
-
-    background: rgba(0,0,0,0.7);
-
-    backdrop-filter: blur(10px);
-
-    border-radius: 20px;
-
-    padding: 20px;
-
-    box-shadow: 0 0 20px rgba(0,255,255,0.3);
-
+body {
+    min-height: 100vh;
+    font-family: Inter, Arial, sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(0, 194, 255, 0.22), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(255, 58, 130, 0.18), transparent 32%),
+        #080b12;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
 }
 
-h1{
-    text-align: center;
-
-    color: cyan;
+.app {
+    width: min(1200px, 100%);
+    height: min(760px, 92vh);
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    background: rgba(15, 20, 32, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(22px);
 }
 
-#mensagens{
-    height: 350px;
-
-    overflow-y: auto;
-
-    background: rgba(255,255,255,0.05);
-
-    padding: 10px;
-
-    border-radius: 10px;
-
-    margin-bottom: 15px;
+.sidebar {
+    padding: 28px;
+    background: rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-p{
-    background: rgba(255,255,255,0.08);
-
-    padding: 10px;
-
-    border-radius: 10px;
-
-    margin-bottom: 10px;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 34px;
 }
 
-input{
-    width: 70%;
-
-    padding: 12px;
-
-    border: none;
-
-    border-radius: 10px;
-
-    outline: none;
+.logo-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #00c2ff, #ff3a82);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
 }
 
-button{
-    padding: 12px;
+.logo h1 {
+    font-size: 24px;
+}
 
-    border: none;
+.logo p,
+.status-card p {
+    color: #aeb7c8;
+    font-size: 14px;
+    margin-top: 4px;
+}
 
-    border-radius: 10px;
+.status-card {
+    display: flex;
+    gap: 12px;
+    padding: 18px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.07);
+    margin-bottom: 28px;
+}
 
-    background: cyan;
+.status-dot {
+    width: 12px;
+    height: 12px;
+    margin-top: 5px;
+    border-radius: 50%;
+    background: #46ff9a;
+    box-shadow: 0 0 18px #46ff9a;
+}
 
+.chips {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.chips button,
+.clear-btn {
+    border: 0;
+    color: white;
     cursor: pointer;
-
-    font-weight: bold;
-
-    transition: 0.3s;
+    border-radius: 14px;
+    padding: 13px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    transition: 0.2s;
 }
 
-button:hover{
-    transform: scale(1.05);
+.chips button:hover,
+.clear-btn:hover {
+    background: rgba(255, 255, 255, 0.16);
+    transform: translateY(-2px);
+}
 
-    background: white;
+.chat {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.chat-header {
+    padding: 28px 32px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge {
+    display: inline-block;
+    color: #00c2ff;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.chat-header h2 {
+    font-size: 34px;
+}
+
+.mensagens {
+    flex: 1;
+    padding: 10px 32px 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.mensagem {
+    display: flex;
+    gap: 12px;
+    max-width: 78%;
+    animation: aparecer 0.22s ease;
+}
+
+.mensagem.voce {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bubble {
+    padding: 15px 17px;
+    border-radius: 20px;
+    line-height: 1.5;
+}
+
+.bubble span {
+    display: block;
+    font-size: 12px;
+    font-weight: 800;
+    color: #aeb7c8;
+    margin-bottom: 5px;
+}
+
+.ia .bubble {
+    background: rgba(255, 255, 255, 0.09);
+    border-top-left-radius: 6px;
+}
+
+.voce .bubble {
+    background: linear-gradient(135deg, #00c2ff, #3de0ff);
+    color: #07111f;
+    border-top-right-radius: 6px;
+}
+
+.voce .bubble span {
+    color: rgba(7, 17, 31, 0.7);
+}
+
+.composer {
+    padding: 22px 32px 32px;
+    display: flex;
+    gap: 14px;
+}
+
+.composer input {
+    flex: 1;
+    height: 64px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    outline: none;
+    border-radius: 22px;
+    padding: 0 22px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-size: 17px;
+}
+
+.composer input::placeholder {
+    color: #8e98aa;
+}
+
+.composer input:focus {
+    border-color: #00c2ff;
+    box-shadow: 0 0 0 4px rgba(0, 194, 255, 0.14);
+}
+
+.composer button {
+    min-width: 130px;
+    border: 0;
+    border-radius: 22px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #00c2ff, #ff3a82);
+    color: white;
+    font-size: 16px;
+    font-weight: 900;
+    transition: 0.2s;
+}
+
+.composer button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(0, 194, 255, 0.25);
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 800px) {
+    body {
+        padding: 0;
+    }
+
+    .app {
+        height: 100vh;
+        border-radius: 0;
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .chat-header h2 {
+        font-size: 26px;
+    }
+
+    .mensagem {
+        max-width: 92%;
+    }
+
+    .composer {
+        padding: 16px;
+    }
+
+    .composer input {
+        height: 58px;
+        font-size: 15px;
+    }
+
+    .composer button {
+        min-width: 92px;
+    }
 }

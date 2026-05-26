@@ -1,34 +1,69 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Mini IA</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA da Resenha</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <div class="chat">
+    <main class="app">
+        <section class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">IA</div>
+                <div>
+                    <h1>IA da Resenha</h1>
+                    <p>Humor, piadas e zoeira leve, nem tão leve</p>
+                </div>
+            </div>
 
-        <h1> CHAT </h1>
+            <div class="status-card">
+                <span class="status-dot"></span>
+                <div>
+                    <strong>Online agora</strong>
+                    <p>Pronta para mandar uma resposta suspeita.</p>
+                </div>
+            </div>
 
-        <div id="mensagens"></div>
+            <div class="chips">
+                <button onclick="enviarTextoRapido('me conta uma piada')">Piada</button>
+                <button onclick="enviarTextoRapido('zoa o jean')">Zoar colega</button>
+                <button onclick="enviarTextoRapido('tudo bem')">Conversa</button>
+            </div>
+        </section>
 
-        <input
-            type="text"
-            id="entrada"
-            placeholder="Qual a sua duvida..."
-        >
+        <section class="chat">
+            <header class="chat-header">
+                <div>
+                    <span class="badge">Modo resenha ativado</span>
+                    <h2>Converse com sua IA</h2>
+                </div>
+                <button class="clear-btn" onclick="limparChat()">Limpar</button>
+            </header>
 
-        <button onclick="enviarMensagem()">
-            Enviar
-        </button>
+            <section id="mensagens" class="mensagens">
+                <div class="mensagem ia">
+                    <div class="avatar">🤖</div>
+                    <div class="bubble">
+                        <span>IA</span>
+                        <p>E aí 😄 manda uma mensagem para começar a resenha.</p>
+                    </div>
+                </div>
+            </section>
 
-    </div>
+            <footer class="composer">
+                <input 
+                    type="text" 
+                    id="entrada" 
+                    placeholder="Digite uma piada, nome de colega ou brincadeira..."
+                    autocomplete="off"
+                >
+                <button onclick="enviarMensagem()">Enviar</button>
+            </footer>
+        </section>
+    </main>
 
     <script src="script.js"></script>
-
 </body>
 </html>
