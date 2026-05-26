@@ -1,3 +1,5 @@
+let ultimaPergunta = "";
+
 function enviarMensagem()
 {
     let entrada = document.getElementById("entrada");
@@ -93,6 +95,8 @@ function enviarMensagem()
 
     else if(texto.includes("questão"))
     {
+        ultimaPergunta = "float";
+
         resposta = `
         Pergunta 😄
 
@@ -104,15 +108,30 @@ function enviarMensagem()
         D) void
         `;
     }
-    else if(texto.includes("o Jean e gay ?"))
-{
-    resposta = "Sim, já teve relações com varios homens e travecos";
-}
 
-else if(texto.includes("o Nardo teve relações com a eti ?"))
-{
-    resposta = "olha, aqui é mais grave, mas o Nardo e o Jean pegaram a eti em 2";
-}
+    else if(ultimaPergunta == "float" && texto == "c")
+    {
+        resposta = "Parabéns 😄🔥 Você acertou!";
+
+        ultimaPergunta = "";
+    }
+
+    else if(ultimaPergunta == "float")
+    {
+        resposta = "Você errou 😢 A resposta correta era C.";
+
+        ultimaPergunta = "";
+    }
+
+    else if(texto.includes("jean"))
+    {
+        resposta = "Essa pergunta é suspeita demais 😂";
+    }
+
+    else if(texto.includes("nardo"))
+    {
+        resposta = "Informações confidenciais 😳";
+    }
 
     else
     {
@@ -122,6 +141,8 @@ else if(texto.includes("o Nardo teve relações com a eti ?"))
     mensagens.innerHTML += `
         <p><strong>IA:</strong> ${resposta}</p>
     `;
+
+    mensagens.scrollTop = mensagens.scrollHeight;
 
     entrada.value = "";
 }
