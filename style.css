@@ -1,33 +1,61 @@
 body{
-    background: #1e1e1e;
-    color: white;
+    background: linear-gradient(to right, #141e30, #243b55);
 
     font-family: Arial;
 
     display: flex;
+
     justify-content: center;
 
-    margin-top: 50px;
+    align-items: center;
+
+    height: 100vh;
+
+    margin: 0;
 }
 
 .chat{
-    width: 400px;
+    width: 450px;
 
-    background: #2a2a2a;
+    background: rgba(0,0,0,0.7);
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 20px;
 
     padding: 20px;
 
-    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,255,255,0.3);
+
+    color: white;
+}
+
+h1{
+    text-align: center;
+
+    color: cyan;
 }
 
 #mensagens{
-    height: 300px;
+    height: 350px;
 
     overflow-y: auto;
 
-    background: #111;
+    background: rgba(255,255,255,0.05);
 
     padding: 10px;
+
+    border-radius: 10px;
+
+    margin-bottom: 15px;
+}
+
+p{
+    background: rgba(255,255,255,0.08);
+
+    padding: 10px;
+
+    border-radius: 10px;
 
     margin-bottom: 10px;
 }
@@ -35,9 +63,33 @@ body{
 input{
     width: 70%;
 
-    padding: 10px;
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    outline: none;
 }
 
 button{
-    padding: 10px;
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: cyan;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+button:hover{
+    transform: scale(1.05);
+
+    background: white;
 }
