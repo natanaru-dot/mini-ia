@@ -14,7 +14,7 @@
                 <div class="logo-icon">IA</div>
                 <div>
                     <h1>IA da Resenha</h1>
-                    <p>Humor, piadas e zoeira leve, nem tão leve</p>
+                    <p>Humor, piadas e zoeira leve</p>
                 </div>
             </div>
 
@@ -27,9 +27,9 @@
             </div>
 
             <div class="chips">
-                <button onclick="enviarTextoRapido('me conta uma piada')">Piada</button>
-                <button onclick="enviarTextoRapido('zoa o jean')">Zoar colega</button>
-                <button onclick="enviarTextoRapido('tudo bem')">Conversa</button>
+                <button type="button" data-texto="me conta uma piada">Piada</button>
+                <button type="button" data-texto="zoa o jean">Zoar colega</button>
+                <button type="button" data-texto="tudo bem">Conversa</button>
             </div>
         </section>
 
@@ -39,7 +39,8 @@
                     <span class="badge">Modo resenha ativado</span>
                     <h2>Converse com sua IA</h2>
                 </div>
-                <button class="clear-btn" onclick="limparChat()">Limpar</button>
+
+                <button type="button" id="btnLimpar" class="clear-btn">Limpar</button>
             </header>
 
             <section id="mensagens" class="mensagens">
@@ -59,7 +60,8 @@
                     placeholder="Digite uma piada, nome de colega ou brincadeira..."
                     autocomplete="off"
                 >
-                <button onclick="enviarMensagem()">Enviar</button>
+
+                <button type="button" id="btnEnviar">Enviar</button>
             </footer>
         </section>
     </main>
